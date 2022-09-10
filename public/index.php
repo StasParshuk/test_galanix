@@ -1,3 +1,8 @@
 <?php
+
+
+use router\web;
+
 require_once __DIR__ . "/setting.php";
-dd(1);
+
+web::router();
