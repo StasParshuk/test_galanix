@@ -1,6 +1,16 @@
 {
   "name": "stas/untitled1",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Model\\": "app/Model",
+      "view\\": "view",
+      "router\\": "router"
+    },
+    "files": ["config/function.php",
+               "config/const.php"]
 
+  },
   "authors": [
     {
       "name": "Stas Parshuk",
