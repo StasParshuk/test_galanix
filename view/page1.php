@@ -4,16 +4,15 @@
 
 <?php
 if  (!empty($error)){
-    echo $error;
+   echo ' <div class="alert alert - primary" role="alert">' . $error . '  </div> ';
 
 }
 unset($error);
-echo "page 1";
 ?>
-<form method="POST" action="/import"  enctype="multipart/form-data">
+<form method="POST" action="/import"   enctype="multipart/form-data">
 <div class="mb-3">
-    <label for="formFile" class="form-label">Default file input example</label>
-    <input  name="CSV" class="form-control" type="file" id="formFile">
+    <label for="formFile" class="form-label">Загрузите CSV </label>
+    <input datatype="csv" name="CSV" class="form-control" type="file" id="formFile">
     <input class="btn btn-primary" type="submit" value="Load Csv">
 </div>
 </form>

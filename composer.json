@@ -4,6 +4,7 @@
     "psr-4": {
       "config\\": "config",
       "Model\\": "app/Model",
+      "Controller\\": "app/Controller",
       "view\\": "view",
       "router\\": "router"
     },
