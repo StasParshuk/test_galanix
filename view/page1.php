@@ -3,6 +3,11 @@
 
 
 <?php
+if  (!empty($error)){
+    echo $error;
+
+}
+unset($error);
 echo "page 1";
 ?>
 <form method="POST" action="/import"  enctype="multipart/form-data">
@@ -15,9 +20,7 @@ echo "page 1";
 <form method="post" action="/clear" >
 <input class="btn btn-primary" type="submit" value="Clear All result">
 </form>
-<form action="/result" method="get">
-<input class="btn btn-primary" type="submit" value="View Result">
-</form>
+<a href="/result">result</a>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">

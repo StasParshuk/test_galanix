@@ -2,6 +2,7 @@
 namespace router;
 
 
+use config\ORM;
 use Model\CsvLoader;
 
 class web
@@ -18,6 +19,7 @@ class web
                 require_once MAINDIR . '/page1/Clearall';
                 break;
             case "result":
+
                 require_once MAINDIR . '/view/page2.php';
                 break;
             case "last/index.php/account":
