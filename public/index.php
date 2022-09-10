@@ -5,7 +5,7 @@ use config\DB;
 use router\web;
 
 require_once __DIR__ . "/setting.php";
-
-dd(DB::connect());
-
+if (!empty($_POST)){
+    dd($_POST);
+}
 web::router();
