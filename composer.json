@@ -2,6 +2,7 @@
   "name": "stas/untitled1",
   "autoload": {
     "psr-4": {
+      "config\\": "config",
       "App\\": "app/",
       "Model\\": "app/Model",
       "view\\": "view",
