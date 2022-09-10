@@ -2,8 +2,9 @@
 namespace router;
 
 
-use config\ORM;
-use Model\CsvLoader;
+
+
+use Controller\ControllerCSV;
 
 class web
 {
@@ -13,13 +14,13 @@ class web
         switch ($url){
 
             case "import":
-               CsvLoader::Load();
+               ControllerCSV::Load();
                 break;
             case "clear":
-                require_once MAINDIR . '/page1/Clearall';
+                ControllerCSV::destroy();
+                require_once MAINDIR . '/view/page2.php';
                 break;
             case "result":
-
                 require_once MAINDIR . '/view/page2.php';
                 break;
             case "last/index.php/account":
