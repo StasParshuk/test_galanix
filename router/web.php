@@ -2,6 +2,8 @@
 namespace router;
 
 
+use Model\CsvLoader;
+
 class web
 {
     public static function router(){
@@ -10,7 +12,7 @@ class web
         switch ($url){
 
             case "import":
-                require_once MAINDIR . '/page1/import';
+               CsvLoader::Load();
                 break;
             case "clear":
                 require_once MAINDIR . '/page1/Clearall';
