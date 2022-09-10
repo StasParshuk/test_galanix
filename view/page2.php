@@ -3,36 +3,38 @@
 
 
 <?php
+
+use config\ORM;
+
+ $row = ORM::all();
+ dump($row);
 echo "page 2";
 ?>
-
+<a href="/">main page</a>
 <table class="table table-dark table-striped">
     <thead>
     <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Uid</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Gender</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
+    <?php foreach ($row as  $item): ?>
+        <tr>
+            <th scope="row"><?=$item->uid ?></th>
+            <td><?=$item->Name ?></td>
+            <td><?=$item->Age ?></td>
+            <td><?=$item->Email ?></td>
+            <td><?=$item->Phone ?></td>
+            <td><?=$item->Gender ?></td>
+        </tr>
+    <?php endforeach; ?>
+
+
     </tbody>
 </table>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
