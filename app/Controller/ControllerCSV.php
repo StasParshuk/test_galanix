@@ -25,7 +25,8 @@ class ControllerCSV
                             return redirect_home($error);
                         }
                     } else {
-                        ModelCSV::create_user($uid = $data[0], $name = $data[1], $age = $data[2], $email = $data[3], $phone = $data[4], $gender = $data[5]);
+                       $rowdata= ModelCSV::create_user($uid = $data[0], $name = $data[1], $age = $data[2], $email = $data[3], $phone = $data[4], $gender = $data[5]);
+                       return $rowdata;
                     }
                     $row++;
                 }
@@ -45,4 +46,6 @@ class ControllerCSV
     {
         return ModelCSV::all();
     }
+
+
 }

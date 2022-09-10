@@ -1,7 +1,10 @@
 <?php
+
 namespace Model;
+
 use config\DB;
 use PDO;
+
 class ModelCSV
 {
     protected static ?string $tableName = null;
@@ -16,12 +19,20 @@ class ModelCSV
 
     }
 
-    public static function all(): object|array
+    public static function all($column = null, $reverse = null): object|array
     {
-        $query = "select * from CSV" ;
+        $query = "select * from CSV ";
+        if (!empty($column)) {
+            $query .= "ORDER BY " . $column;
+            if (!empty($reverse)) {
+                $query .= $reverse;
+            }
+        }
+
         return DB::connect()->query($query)->fetchAll(PDO::FETCH_CLASS, static::class);
 
     }
+
     public static function create_user(string $UID, string $Name, string $Age, string $Email, string $Phone, $Gender)
     {
         $query = "INSERT INTO CSV " . " (UID, Name, Age, Email, Phone,Gender)  VALUES (?, ?, ?, ?, ?, ?) " . "on duplicate key update UID = values(UID)";
@@ -33,9 +44,15 @@ class ModelCSV
         $query->bindValue(5, $Phone, PDO::PARAM_STR);
         $query->bindValue(6, $Gender, PDO::PARAM_STR);
         $query->execute();
+        $query = "select * from CSV ";
+        return DB::connect()->query($query)->fetchAll(PDO::FETCH_CLASS, static::class);
 
 
+    }
 
-
+    public static function order_by(string $column)
+    {
+        $query = "SELECT * FROM CSV ORDER BY " . $column;
+        return DB::connect()->query($query)->fetchAll(PDO::FETCH_CLASS, static::class);
     }
 }

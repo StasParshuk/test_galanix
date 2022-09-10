@@ -9,24 +9,26 @@
 
 use Controller\ControllerCSV;
 
-$row = ControllerCSV::result();
 if (empty($row)){
     echo ' <div class="alert alert - primary" role="alert"> База данных пуста </div> ';
 }
+
 ?>
+
 <a href="/">main page</a>
 <table class="table table-dark table-striped">
     <thead>
     <tr>
-        <th scope="col">Uid</th>
-        <th scope="col">Name</th>
-        <th scope="col">Age</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Gender</th>
+        <th  scope="col"><a href="http://localhost/clear/filter/uid">Uid</a><a href="http://localhost/clear/filter/reverse/uid"> rev</a></th>
+        <th scope="col"><a href="http://localhost/clear/filter/name">Name</a><a href="http://localhost/clear/filter/reverse/name"> rev </a></th>
+        <th scope="col"><a href="http://localhost/clear/filter/age">Age</a><a href="http://localhost/clear/filter/reverse/age"> rev</a></th>
+        <th scope="col"><a href="http://localhost/clear/filter/email">Email</a><a href="http://localhost/clear/filter/reverse/email"> rev</a></th>
+        <th scope="col"><a href="http://localhost/clear/filter/phone">Phone </a><a href="http://localhost/clear/filter/reverse/phone"> rev</a></th>
+        <th scope="col"><a href="http://localhost/clear/filter/gender">Gender</a><a href="http://localhost/clear/filter/reverse/gender"> rev</a></th>
     </tr>
     </thead>
     <tbody>
+    <?php if(!empty ($row)):?>
     <?php foreach ($row as $item): ?>
         <tr>
             <th scope="row"><?= $item->uid ?></th>
@@ -37,7 +39,7 @@ if (empty($row)){
             <td><?= $item->Gender ?></td>
         </tr>
     <?php endforeach; ?>
-
+<?php endif;?>
 
     </tbody>
 </table>
