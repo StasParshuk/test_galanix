@@ -44,10 +44,3 @@ if (empty($row)){
     </tbody>
 </table>
 
-<form method="POST" action="/export"   enctype="multipart/form-data">
-    <div class="mb-3">
-        <label for="formFile" class="form-label">Загрузите CSV </label>
-        <input datatype="csv" name="CSV" class="form-control" type="file" id="formFile">
-        <input class="btn btn-primary" type="submit" value="Load Csv">
-    </div>
-</form>

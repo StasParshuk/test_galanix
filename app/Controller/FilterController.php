@@ -10,7 +10,8 @@ class FilterController
     {
         $column = explode("/", $_SERVER['REQUEST_URI']);
         $column = end($column);
-      return  ModelCSV::all($column);
+        $row = ModelCSV::all($column);
+        return require_once MAINDIR . '/view/page2.php';
     }
 
     public static function filter_reverse()
@@ -18,7 +19,8 @@ class FilterController
         $column = explode("/", $_SERVER['REQUEST_URI']);
         $column = end($column);
 
-        return  ModelCSV::all($column," DESC");
+        $row = ModelCSV::all($column, " DESC");
+        return require_once MAINDIR . '/view/page2.php';
     }
 
 }
