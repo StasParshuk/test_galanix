@@ -7,7 +7,6 @@ use PDO;
 
 class ModelCSV
 {
-    protected static ?string $tableName = null;
 
     public static function delete(): object|string
     {
@@ -28,12 +27,10 @@ class ModelCSV
                 $query .= $reverse;
             }
         }
-
         return DB::connect()->query($query)->fetchAll(PDO::FETCH_CLASS, static::class);
-
     }
 
-    public static function create_user(string $UID, string $Name, string $Age, string $Email, string $Phone, $Gender)
+    public static function create_user(string $UID, string $Name, string $Age, string $Email, string $Phone, string $Gender)
     {
         $query = "INSERT INTO CSV " . " (UID, Name, Age, Email, Phone,Gender)  VALUES (?, ?, ?, ?, ?, ?) " . "on duplicate key update UID = values(UID)";
         $query = DB::connect()->prepare($query);
@@ -50,7 +47,7 @@ class ModelCSV
 
     }
 
-    public static function order_by(string $column)
+    public static function order_by(string $column) : object|array
     {
         $query = "SELECT * FROM CSV ORDER BY " . $column;
         return DB::connect()->query($query)->fetchAll(PDO::FETCH_CLASS, static::class);
